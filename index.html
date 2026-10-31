@@ -88,6 +88,85 @@ li .nm{font-weight:600}
 .foot{text-align:center;color:var(--muted);font-size:.75rem;padding:8px 0 24px;line-height:1.7}
 .foot b{font:italic 600 .9rem Georgia,"Times New Roman",serif;color:var(--text)}
 select{width:100%;padding:12px;border-radius:12px;border:1px solid rgba(128,128,128,.35);background:transparent;color:inherit;font:inherit}
+/* ---- v21 modern refresh ---- */
+:root{--bg:#f5f3f2;--card:#fff;--text:#241618;--muted:#7b6b6c;--line:#ece6e5;--soft:#f3eeed;--shadow:0 1px 2px rgba(60,20,20,.04),0 8px 24px rgba(60,20,20,.06);--r:16px;--ok:#1b8a4b;--warn:#e8710a}
+@media (prefers-color-scheme:dark){:root{--bg:#130a0b;--card:#1e1113;--text:#f4eaea;--muted:#b09b9c;--line:#322023;--soft:#2a1a1c;--shadow:0 1px 2px rgba(0,0,0,.4);--ok:#4ade80;--warn:#fb923c}}
+body{-webkit-tap-highlight-color:transparent;font-family:Inter,"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+.top{position:sticky;top:0;z-index:20;border-bottom:2px solid var(--gold);box-shadow:0 2px 14px rgba(0,0,0,.18)}
+main{max-width:640px;padding:16px}
+.card{border-radius:var(--r);padding:16px;margin-bottom:14px;box-shadow:var(--shadow);border:1px solid var(--line)}
+label{text-transform:none;letter-spacing:0;font-size:.78rem;font-weight:600;margin:12px 0 5px}
+input,select{height:46px;padding:0 14px;border-radius:12px;border:1.5px solid transparent;background:var(--soft);color:var(--text);transition:border-color .15s,box-shadow .15s}
+input[type=file]{height:auto;padding:8px}
+input[type=file]::file-selector-button{border:0;border-radius:8px;padding:8px 12px;margin-right:10px;background:var(--btn);color:#fff;font:inherit;cursor:pointer}
+input[type=range]{height:auto;padding:0;accent-color:var(--btn);background:transparent}
+select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+input:focus,select:focus{outline:0;border-color:var(--btn);box-shadow:0 0 0 3px rgba(138,26,31,.15)}
+button{border-radius:12px;min-height:46px;padding:0 14px;font-weight:600;transition:transform .1s,opacity .15s,background .15s}
+button:active{transform:scale(.97)}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+button.sec{background:var(--soft);border:0;color:var(--text)}
+button.danger{background:rgba(198,40,40,.1);border:0;color:var(--bad)}
+.seg{gap:4px;padding:4px;background:var(--soft);border:0;border-radius:14px}
+.seg button{min-height:42px;border-radius:10px;color:var(--muted)}
+.seg button.on{box-shadow:0 2px 8px rgba(138,26,31,.28);color:#fff}
+.seg button.on.out{box-shadow:0 2px 8px rgba(240,178,122,.4)}
+.cam{border-radius:var(--r);background:#000}
+#reader{border-radius:var(--r)}
+.head strong{font-size:1.02rem}
+li{padding:12px 0;border-top:1px solid var(--line)}
+li:first-child{border-top:0}
+.grp{background:var(--soft);border-radius:10px;border:0!important;margin-top:14px}
+.ic{width:40px;height:40px;min-height:40px;border:0;border-radius:12px;background:var(--soft)}
+.ic.has{background:rgba(180,83,9,.12)}
+.ic.del{background:rgba(198,40,40,.1)}
+#msg{max-width:520px;margin:0 auto;border-radius:14px}
+.pinbox{max-width:360px;border-radius:20px;padding:18px;background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.pinbox input{height:48px;border-radius:14px;background:#fff}
+.pinbox input:focus{box-shadow:0 0 0 3px rgba(240,178,122,.5);border-color:transparent}
+.pinbox button{min-height:48px;border-radius:14px}
+.foot{padding:12px 0 28px}
+
+/* ---- v22 additions ---- */
+/* orange warning for "not in list" */
+#msg.warn{display:block;background:#e8710a}
+.cam .frame.warn i{border-color:#fb923c}
+/* stats line: each count in its own colour */
+#stats .sp{color:var(--ok)}#stats .sa{color:var(--bad)}#stats .sw{color:var(--warn)}#stats .dot{color:var(--muted);margin:0 6px}
+/* icon-only sign out */
+#logout.ic{margin-left:auto;flex:none;min-width:0;width:40px;padding:0;background:rgba(255,255,255,.14);color:#fff;border:0;display:inline-flex;align-items:center;justify-content:center}
+#logout svg{width:20px;height:20px;fill:none;stroke:currentColor}
+/* history dropdown groups */
+details.sg{margin-top:10px;border-radius:14px;background:var(--soft);overflow:hidden}
+details.sg>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 14px;font-weight:700}
+details.sg>summary::-webkit-details-marker{display:none}
+details.sg>summary::before{content:"";flex:none;width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .2s}
+details.sg[open]>summary::before{transform:rotate(45deg)}
+details.sg>summary .t{flex:1;min-width:0;word-break:break-word}
+details.sg>summary .c{flex:none;font-size:.75rem;font-weight:600;color:var(--muted);background:var(--card);border-radius:99px;padding:1px 9px}
+details.sg>ul{margin:0;padding:0 14px 4px;background:var(--card)}
+.ic.x{width:30px;height:30px;min-height:30px;border-radius:50%;font-size:1.1rem;line-height:1;padding:0;min-width:0}
+/* ---- v22b: stats bar, % badge, history × ---- */
+.pct{font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:99px;line-height:1.4;background:var(--soft);color:var(--muted)}
+.sbar{display:flex;gap:3px;height:8px;margin-top:2px}
+.sbar i{display:block;height:100%;border-radius:99px;min-width:6px;transition:flex .4s}
+.sbar{--pg:#8fd3ab;--pr:#f4a9a9;--po:#f8c895}
+@media (prefers-color-scheme:dark){.sbar{--pg:#5fae82;--pr:#cf7f7f;--po:#d6a066}}
+.sbar .p{background:var(--pg)}.sbar .a{background:var(--pr)}.sbar .w{background:var(--po)}
+.snum{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:7px;font-size:.78rem;font-weight:600}
+.snum span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px}
+.snum .sp{color:var(--ok)}.snum .sa{color:var(--bad)}.snum .sw{color:var(--warn)}
+#cloudSt{display:flex;align-items:center;gap:5px;font-size:.72rem!important;margin-top:8px!important}
+#cloudSt:empty{display:none}
+#cloudSt svg{width:13px;height:13px;flex:none;fill:none;stroke:currentColor}
+/* history rows: compact, single line */
+li.hrow .acts{align-self:center;gap:6px}
+li .d{min-width:0}
+li.hrow .nm{font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+li.hrow .nm.open{white-space:normal;word-break:break-word}
+li.hrow .muted{font-size:.72rem}
+li.hrow .ic{width:32px;height:32px;min-height:32px;border-radius:10px;font-size:.95rem}
+li.hrow .ic svg{width:16px;height:16px}
 </style>
 </head>
 <body>
@@ -118,9 +197,9 @@ select{width:100%;padding:12px;border-radius:12px;border:1px solid rgba(128,128,
 </div>
 
 <div id="app" hidden>
-  <header class="top"><img class="lg" alt="May University in Cairo"><button id="logout" style="margin-left:auto;flex:none;min-width:0;background:transparent;border:1px solid rgba(255,255,255,.5)">Sign out</button></header>
+  <header class="top"><img class="lg" alt="May University in Cairo"><button id="logout" class="ic" title="Sign out" aria-label="Sign out"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg></button></header>
   <main>
-    <div class="card" id="cloudCard" hidden><button id="clRef" class="sec" style="width:100%">History</button><div id="clBody" hidden><div class="muted" id="clHint" style="margin-top:10px"></div><div class="row" style="margin-top:10px"><select id="fLevel" style="flex:1;min-width:0"></select><select id="fGroup" style="flex:1;min-width:0"></select><select id="fSubj" style="flex:1;min-width:0"></select></div><input id="clQ" type="search" dir="auto" placeholder="Search by session name or email" style="margin-top:10px"><ul id="cl"></ul></div></div>
+    <div class="card" id="cloudCard" hidden><button id="clRef" class="sec" style="width:100%">History</button><div id="clBody" hidden><div class="muted" id="clHint" style="margin-top:10px"></div><div class="row" style="margin-top:10px"><select id="fLevel" style="flex:1;min-width:0"></select><select id="fGroup" style="flex:1;min-width:0"></select><select id="fSubj" style="flex:1;min-width:0"></select></div><input id="clQ" type="search" dir="auto" placeholder="Search by session name or email" style="margin-top:10px"><div id="cl"></div></div></div>
     <div class="card" id="repCard" hidden><button id="repBtn" class="sec" style="width:100%">Attendance report</button><div id="repBody" hidden><select id="repSel" style="margin-top:10px"></select><label>Minimum attendance %</label><input id="repMin" type="number" min="0" max="100" value="75"><div class="muted" id="repSum" style="margin-top:8px"></div><ul id="repList"></ul><button id="repXls" style="width:100%;margin-top:10px">Download Excel</button></div></div>
     <div class="card" id="adminCard" hidden><div class="head"><strong>Users &amp; access</strong><button id="admRef" class="sec" style="flex:none;min-width:0">Refresh</button></div><ul id="reqs"></ul></div>
     <div class="card att">
@@ -140,7 +219,7 @@ select{width:100%;padding:12px;border-radius:12px;border:1px solid rgba(128,128,
     </div>
 
     <div class="card att">
-      <div class="head"><strong>Attendance</strong><span style="display:flex;align-items:center;gap:10px"><span class="muted" id="count"></span><button id="addP" class="ic" title="Add a student manually" aria-label="Add a student manually"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></button></span></div>
+      <div class="head"><span style="display:flex;align-items:center;gap:8px"><strong>Attendance</strong><span id="pct" class="pct" hidden></span></span><span style="display:flex;align-items:center;gap:10px"><span class="muted" id="count"></span><button id="addP" class="ic" title="Add a student manually" aria-label="Add a student manually"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></button></span></div>
       <div id="manual" hidden style="margin-top:10px"><input id="mId" inputmode="numeric" placeholder="Student ID"><input id="mName" dir="auto" placeholder="Student name" style="margin-top:8px"><div class="row" style="margin-top:8px"><button id="mAdd">Add check-in</button><button id="mCancel" class="sec">Close</button></div></div>
       <div id="stats" style="margin-top:8px;font-weight:600"></div><div id="cloudSt" class="muted" style="font-size:.78rem;margin-top:2px"></div>
       <input id="search" type="search" dir="auto" placeholder="Search by name, ID or note" style="margin-top:10px">
@@ -233,8 +312,12 @@ async function readRoster(f){
 function rosterInfo(){$("rosterInfo").textContent=roster.length?"Students list for this subject: "+roster.length+" students":"No students list for this subject yet. Upload one."}
 function syncUI(){if(sess.subject&&!subjects.includes(sess.subject)){subjects.push(sess.subject);store("qra_subjects",subjects)}fillSubjects();["year","group","subject","lecture","date"].forEach(k=>{$(k).value=sess[k]});rosterInfo()}
 function renderStats(){
-  const all=cur(),c=calc(all,roster);
-  $("stats").textContent=roster.length?"Present "+(all.length-c.extra.length)+" \u00b7 Absent "+c.absent.length+(c.extra.length?" \u00b7 Not in list "+c.extra.length:"")+" \u00b7 List "+roster.length:"";
+  const all=cur(),c=calc(all,roster),el=$("stats"),pc=$("pct");
+  if(!roster.length){el.innerHTML="";pc.hidden=true;return}
+  const pr=all.length-c.extra.length,ab=c.absent.length,ex=c.extra.length,tot=pr+ab+ex,pct=Math.round(pr/roster.length*100);
+  pc.hidden=false;pc.textContent=pct+"%";
+  const seg=(n,k)=>n?'<i class="'+k+'" style="flex:'+n+'"></i>':"";
+  el.innerHTML='<div class="sbar">'+seg(pr,"p")+seg(ab,"a")+seg(ex,"w")+'</div><div class="snum"><span class="sp">Present '+pr+'</span><span class="sa">Absent '+ab+'</span><span class="sw">Not in list '+ex+'</span></div>';
 }
 function saveXlsx(l,ro,meta,key){
   if(!l.length&&!ro.length){show("No data to export","bad");return}
@@ -276,7 +359,7 @@ const IC_OUT=svg('<path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 1
 const IC_UNDO=svg('<path d="M3 7v6h6"/><path d="M21 17a9 9 0 00-15-6.7L3 13"/>');
 const IC_DEL=svg('<path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/>');
 
-function show(t,c){const m=$("msg");m.textContent=t;m.className=c;clearTimeout(msgT);msgT=setTimeout(()=>{m.className=""},c==="bad"?4000:2500)}
+function show(t,c){const m=$("msg");m.textContent=t;m.className=c;clearTimeout(msgT);msgT=setTimeout(()=>{m.className=""},c==="bad"||c==="warn"?4000:2500)}
 function beep(f){try{const c=new (window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator();o.frequency.value=f;o.connect(c.destination);o.start();setTimeout(()=>{o.stop();c.close()},120)}catch(e){}}
 
 function parse(t){
@@ -350,7 +433,7 @@ function onScan(text){
   }
   if(ex)return bad(nm+(ex.timeOut?" already checked in and out":" is already checked in"));
   items.push({session:sessionKey(),id:p.id,name:p.name||rname(p.id),raw:text,time:new Date().toISOString()});
-  store(K.items,items);render();if(roster.length&&!rhas(p.id)){beep(400);show(nm+" is not in this group's list (recorded anyway)","bad");flash("bad")}else{beep(900);show("Checked in: "+nm,"ok");flash("ok")}
+  store(K.items,items);render();if(roster.length&&!rhas(p.id)){beep(400);show(nm+" is not in this group's list (recorded anyway)","warn");flash("warn")}else{beep(900);show("Checked in: "+nm,"ok");flash("ok")}
 }
 let mode=load("qra_mode","in"),flT;
 function flash(c){const f=$("frame");f.className="frame "+c;clearTimeout(flT);flT=setTimeout(()=>{f.className="frame"},700)}
@@ -408,7 +491,7 @@ $("mAdd").onclick=()=>{
   const t=new Date().toISOString();
   items.push({session:sessionKey(),id,name:nm,raw:"manual",time:t,note:"Added manually",noteTime:t});
   store(K.items,items);render();
-  if(roster.length&&!rhas(id)){beep(400);show(nm+" is not in this group's list (recorded anyway)","bad")}else{beep(900);show("Checked in: "+nm,"ok")}
+  if(roster.length&&!rhas(id)){beep(400);show(nm+" is not in this group's list (recorded anyway)","warn")}else{beep(900);show("Checked in: "+nm,"ok")}
   $("mId").value="";$("mName").value="";delete $("mName").dataset.typed;$("mId").focus();
 };
 render();
@@ -443,7 +526,7 @@ async function gate(u){
     let d=await ref.get();
     if(!d.exists){await ref.set({email:u.email.toLowerCase(),status:isAdm(u)?"approved":"pending",created:firebase.firestore.FieldValue.serverTimestamp()});d=await ref.get()}
     const st=d.data().status;
-    if(st==="approved"){approved=true;try{localStorage.setItem("qra_ok",u.uid)}catch(e){}openApp();$("adminCard").hidden=!isAdm(u);document.querySelectorAll(".att").forEach(e=>e.hidden=isAdm(u));$("cloudCard").hidden=false;$("repCard").hidden=!isAdm(u);$("clHint").textContent=isAdm(u)?"All lecturers' sessions. Tap ↓ to download Excel.":"Your saved sessions. Tap ↺ to restore one on this device, ↓ to download Excel.";if(isAdm(u))loadReqs();render();return}
+    if(st==="approved"){approved=true;try{localStorage.setItem("qra_ok",u.uid)}catch(e){}openApp();$("adminCard").hidden=!isAdm(u);document.querySelectorAll(".att").forEach(e=>e.hidden=isAdm(u));$("cloudCard").hidden=false;$("repCard").hidden=!isAdm(u);$("clHint").textContent=isAdm(u)?"All lecturers' sessions by email. Tap ↓ to download Excel.":"Your saved sessions by subject. Tap ↺ to restore one on this device, ↓ to download Excel.";if(isAdm(u))loadReqs();render();return}
     lockUI(false,st==="rejected"?"Your access request was declined.":"Your request is waiting for approval. Tap Check again later.",false);
   }catch(e){
     // offline: let a previously approved user keep working
@@ -483,28 +566,41 @@ function restore(v){
   syncUI();store(K.items,items);cj="";render();show("Restored "+n+" student(s) from the cloud","ok");
 }
 let cdocs=[];
+const openG=new Set();
 function drawCloud(){
-  const ul=$("cl"),q=norm($("clQ").value.trim()),adm=isAdm(user);ul.innerHTML="";
-  const fl=$("fLevel").value,fg=$("fGroup").value,fs=$("fSubj").value;
+  const box=$("cl"),q=norm($("clQ").value.trim()),adm=isAdm(user);box.innerHTML="";
+  const fl=$("fLevel").value,fg=$("fGroup").value,fs=$("fSubj").value,filt=!!(q||fl||fg||fs);
   const list=cdocs.filter(({v})=>{const m=v.meta||{};return(!fl||m.year===fl)&&(!fg||m.group===fg)&&(!fs||m.subject===fs)&&(!q||norm((v.session||"")+" "+(v.by||"")).includes(q))});
-  if(!list.length){ul.innerHTML='<div class="empty">'+(cdocs.length?"No results found":"No saved sessions yet")+'</div>';return}
-  if(adm)list.sort((a,b)=>String(a.v.by||"").localeCompare(String(b.v.by||"")));
-  const cnt={};list.forEach(x=>{const o=x.d.ref.parent.parent.id;cnt[o]=(cnt[o]||0)+1});let lastO=null;
-  list.forEach(({d,v})=>{
-    if(adm){const o=d.ref.parent.parent.id;if(o!==lastO){lastO=o;const h=document.createElement("li");h.className="grp";h.textContent=(v.by||o)+" \u00b7 "+cnt[o]+" session(s)";ul.appendChild(h)}}
-    const mine=d.ref.parent.parent.id===user.uid,li=document.createElement("li");
-    li.innerHTML='<div class="d"><div class="nm" dir="auto"></div><div class="muted"></div></div><div class="acts"><button class="ic" data-a="x" title="Download Excel">\u2193</button>'+(mine?'<button class="ic" data-a="r" title="Restore on this device">\u21BA</button>':'')+(adm?'<button class="ic del" data-a="d" title="Delete session" aria-label="Delete session">'+IC_DEL+'</button>':'')+'</div>';
-    li.querySelector(".nm").textContent=v.session||"Attendance";
-    {const it=v.items||[],ro=v.roster||[],c=calc(it,ro),pr=it.length-c.extra.length;li.querySelector(".muted").textContent=(adm?(v.by||"")+" \u00b7 ":"")+(ro.length?Math.round(pr/ro.length*100)+"% attendance ("+pr+"/"+ro.length+")":it.length+" present")}
-    li.querySelector('[data-a="x"]').onclick=()=>xlsxOut(v);
-    const dl=li.querySelector('[data-a="d"]');
-    if(dl)dl.onclick=async()=>{
-      if(!confirm("Delete this session permanently from the cloud?\n"+(v.session||"")+"\n"+(v.by||"")))return;
-      try{await d.ref.delete();cdocs=cdocs.filter(x=>x.d!==d);fillFilters();drawCloud();show("Session deleted","ok")}
-      catch(e){show(e.code==="permission-denied"?"Not allowed. Publish the updated Firestore rules.":e.message,"bad")}
-    };
-    const r=li.querySelector('[data-a="r"]');if(r)r.onclick=()=>{if(confirm("Restore this session on this device?"))restore(v)};
-    ul.appendChild(li);
+  if(!list.length){box.innerHTML='<div class="empty">'+(cdocs.length?"No results found":"No saved sessions yet")+'</div>';return}
+  const owner=x=>x.d.ref.parent.parent.id,subj=x=>((x.v.meta||{}).subject||"").trim()||"No subject";
+  const gk=x=>adm?owner(x):subj(x),gn=x=>adm?(x.v.by||owner(x)):subj(x);
+  const dt=x=>String((x.v.meta||{}).date||"");
+  list.sort((a,b)=>gn(a).localeCompare(gn(b))||dt(b).localeCompare(dt(a)));
+  const groups=[];
+  list.forEach(x=>{const k=gk(x);let g=groups[groups.length-1];if(!g||g.k!==k){g={k,name:gn(x),items:[]};groups.push(g)}g.items.push(x)});
+  groups.forEach(g=>{
+    const det=document.createElement("details"),key=(adm?"a:":"u:")+g.k;det.className="sg";det.open=filt||openG.has(key);
+    det.ontoggle=()=>{if(filt)return;det.open?openG.add(key):openG.delete(key)};
+    const sm=document.createElement("summary");sm.innerHTML='<span class="t" dir="auto"></span><span class="c"></span>';
+    sm.querySelector(".t").textContent=g.name;sm.querySelector(".c").textContent=g.items.length;det.appendChild(sm);
+    const ul=document.createElement("ul");det.appendChild(ul);
+    g.items.forEach(({d,v})=>{
+      const mine=d.ref.parent.parent.id===user.uid,li=document.createElement("li");
+      li.innerHTML='<div class="d"><div class="nm" dir="auto"></div><div class="muted"></div></div><div class="acts"><button class="ic" data-a="x" title="Download Excel">\u2193</button>'+(mine?'<button class="ic" data-a="r" title="Restore on this device">\u21BA</button>':'')+(adm?'<button class="ic del" data-a="d" title="Delete session" aria-label="Delete session">'+IC_DEL+'</button>':'')+'</div>';
+      li.classList.add("hrow");
+      {const nm=li.querySelector(".nm");nm.textContent=v.session||"Attendance";nm.title=v.session||"";nm.onclick=()=>nm.classList.toggle("open")}
+      {const it=v.items||[],ro=v.roster||[],c=calc(it,ro),pr=it.length-c.extra.length;li.querySelector(".muted").textContent=(adm&&(v.meta||{}).subject?v.meta.subject+" \u00b7 ":"")+(ro.length?Math.round(pr/ro.length*100)+"% attendance ("+pr+"/"+ro.length+")":it.length+" present")}
+      li.querySelector('[data-a="x"]').onclick=()=>xlsxOut(v);
+      const dl=li.querySelector('[data-a="d"]');
+      if(dl)dl.onclick=async()=>{
+        if(!confirm("Delete this session permanently from the cloud?\n"+(v.session||"")+"\n"+(v.by||"")))return;
+        try{await d.ref.delete();cdocs=cdocs.filter(x=>x.d!==d);fillFilters();drawCloud();show("Session deleted","ok")}
+        catch(e){show(e.code==="permission-denied"?"Not allowed. Publish the updated Firestore rules.":e.message,"bad")}
+      };
+      const r=li.querySelector('[data-a="r"]');if(r)r.onclick=()=>{if(confirm("Restore this session on this device?"))restore(v)};
+      ul.appendChild(li);
+    });
+    box.appendChild(det);
   });
 }
 async function loadCloud(){
@@ -561,13 +657,13 @@ $("repBtn").onclick=()=>{const b=$("repBody");b.hidden=!b.hidden;$("repBtn").tex
 $("repSel").onchange=drawReport;$("repMin").oninput=drawReport;$("repXls").onclick=repXlsx;
 $("clRef").onclick=()=>{const b=$("clBody");b.hidden=!b.hidden;$("clRef").textContent=b.hidden?"History":"Hide history";if(!b.hidden)loadCloud()};
 let cj="",ct;
-function cst(t,c){const e=$("cloudSt");if(e){e.textContent=t;e.style.color=c||""}}
+function cst(t,c){const e=$("cloudSt");if(!e)return;e.innerHTML="";if(!t){return}e.style.color=c||"";const i=document.createElement("span");i.innerHTML='<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10a6 6 0 00-11.6-1.5A4.5 4.5 0 007 18h11a4 4 0 000-8z"/></svg>';e.appendChild(i.firstChild);e.appendChild(document.createTextNode(t))}
 window.addEventListener("online",()=>{cj="";render()});
 function cloud(){
   if(!approved){if(user&&cur().length)cst("Saved on this device only (offline)","var(--note)");return}
   const l=cur();if(!l.length){cst("");return}
   const j=JSON.stringify([l,roster,sess]);if(j===cj)return;cj=j;clearTimeout(ct);cst("Saving...","");
-  ct=setTimeout(()=>db.collection("backups").doc(user.uid).collection("sessions").doc(encodeURIComponent(sessionKey())).set({session:sessionKey(),by:user.email,updated:firebase.firestore.FieldValue.serverTimestamp(),items:l.map(x=>JSON.parse(JSON.stringify(x))),roster:roster,meta:{year:sess.year,group:sess.group,subject:sess.subject,lecture:sess.lecture,date:sess.date}}).then(()=>cst("Saved to cloud \u2713 "+new Date().toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"}),"#1b8a4b")).catch(()=>{cj="";cst("Not saved yet. Will retry when online","var(--note)")}),2000);
+  ct=setTimeout(()=>db.collection("backups").doc(user.uid).collection("sessions").doc(encodeURIComponent(sessionKey())).set({session:sessionKey(),by:user.email,updated:firebase.firestore.FieldValue.serverTimestamp(),items:l.map(x=>JSON.parse(JSON.stringify(x))),roster:roster,meta:{year:sess.year,group:sess.group,subject:sess.subject,lecture:sess.lecture,date:sess.date}}).then(()=>cst("Saved to cloud \u2713 "+new Date().toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"}),"var(--ok)")).catch(()=>{cj="";cst("Not saved yet. Will retry when online","var(--note)")}),2000);
 }
 </script>
 </body>
